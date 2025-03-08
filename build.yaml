@@ -1,4 +1,14 @@
----
+name: Build ZMK firmware
+ on:
+   workflow_dispatch:
+   push:
+     paths-ignore:
+       - "keymap-drawer/**"
+ 
+ jobs:
+   build:
+     uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@main
+
 include:
   - board: eyelash_corne_left
     shield: nice_view
