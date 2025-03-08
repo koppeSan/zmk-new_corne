@@ -51,19 +51,31 @@
         tap-ms = <100>;
     };
 
+    macros {
+        gmail_address: gmail_address {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&none &kp K &kp N2 &kp DOT &kp D &kp R &kp U &kp M &kp S &kp AT &kp G &kp M &kp A &kp I &kp L &kp DOT &kp C &kp O &kp M &kp TAB>,
+                <&macro_tap>;
+
+            label = "GMAIL_ADDRESS";
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
         default_layer {
             display-name = "QWERTY";
             bindings = <
-&kp TAB    &kp Q  &kp W  &kp E     &kp R  &kp T                               &kp UP                &kp Y        &kp U  &kp I      &kp O    &kp P     &kp BSPC
-&td0       &kp A  &kp S  &kp D     &kp F  &kp G                     &kp LEFT  &kp ENTER  &kp RIGHT  &kp H        &kp J  &kp K      &kp L    &kp SEMI  &kp SQT
-&kp LCTRL  &kp Z  &kp X  &kp C     &kp V  &kp B        &kp SPACE              &kp DOWN              &kp N        &kp M  &kp COMMA  &kp DOT  &kp FSLH  &kp ESC
-                         &kp LGUI  &mo 1  &lt 3 SPACE                                               &lt 4 ENTER  &mo 2  &kp RALT
+&kp TAB         &kp Q  &kp W  &kp E     &kp R        &kp T                               &kp UP                &kp Y        &kp U  &kp I      &kp O    &kp P      &kp BSPC
+&td0            &kp A  &kp S  &kp D     &kp F        &kp G                     &kp LEFT  &kp ENTER  &kp RIGHT  &kp H        &kp J  &kp K      &kp L    &kp MINUS  &kp SEMICOLON
+&kp LEFT_SHIFT  &kp Z  &kp X  &kp C     &kp V        &kp B        &kp SPACE              &kp DOWN              &kp N        &kp M  &kp COMMA  &kp DOT  &kp FSLH   &kp ESC
+                              &kp LGUI  &lt 1 LCTRL  &lt 3 SPACE                                               &lt 2 ENTER  &mo 4  &kp RALT
             >;
 
-            sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOLUME_DOWN>;
+            sensor-bindings = <&inc_dec_kp SPACE LS(SPACE)>;
         };
 
         lower_layer {
@@ -75,28 +87,28 @@
                                          &trans        &trans        &trans                                                                          &kp INS          &kp DEL          &trans
             >;
 
-            sensor-bindings = <&scroll_encoder>;
+            sensor-bindings = <&rgb_encoder>;
         };
 
         raise_layer {
             display-name = "SYMBOL";
             bindings = <
-&trans  &kp EXCL      &kp AT        &kp HASH   &kp DLLR   &kp PRCNT                            &mmv MOVE_UP                     &kp CARET  &kp AMPS   &kp ASTRK  &kp LPAR  &kp RPAR  &kp BSPC
-&trans  &bt BT_CLR    &mkp LCLK     &mkp MCLK  &mkp RCLK  &mkp MB4             &mmv MOVE_LEFT  &mkp LCLK       &mmv MOVE_RIGHT  &kp MINUS  &kp EQUAL  &kp LBKT   &kp RBKT  &kp BSLH  &kp GRAVE
-&trans  &out OUT_USB  &out OUT_BLE  &none      &none      &mkp MB5   &trans                    &mmv MOVE_DOWN                   &kp UNDER  &kp PLUS   &kp LBRC   &kp RBRC  &kp PIPE  &kp TILDE
-                                    &trans     &trans     &kp SPACE                                                             &kp RET    &trans     &trans
+&trans  &kp EXCL      &kp AT        &kp HASH   &kp DLLR   &kp PRCNT                                           &mmv MOVE_UP                     &kp CARET  &kp AMPS   &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp ASTERISK  &kp BSPC
+&trans  &bt BT_CLR    &mkp LCLK     &mkp MCLK  &mkp RCLK  &mkp MB4                            &mmv MOVE_LEFT  &mkp LCLK       &mmv MOVE_RIGHT  &kp MINUS  &kp EQUAL  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp MINUS     &kp GRAVE
+&trans  &out OUT_USB  &out OUT_BLE  &none      &none      &mkp MB5   &kp C_BRIGHTNESS_AUTO                    &mmv MOVE_DOWN                   &kp UNDER  &kp PLUS   &kp LESS_THAN         &kp GREATER_THAN       &kp QUESTION  &kp RIGHT_SHIFT
+                                    &trans     &trans     &kp SPACE                                                                            &trans     &kp LEFT   &kp RIGHT
             >;
 
-            sensor-bindings = <&scroll_encoder>;
+            sensor-bindings = <&inc_dec_kp C_BRIGHTNESS_INC C_BRIGHTNESS_DEC>;
         };
 
         layer_3 {
             display-name = "Fn";
             bindings = <
-&studio_unlock  &kp F1      &kp F2     &kp F3       &kp F4     &kp F5                                  &mmv MOVE_UP                     &kp F6       &kp F7     &kp F8       &kp F9      &kp F10          &kp F11
-&trans          &trans      &mkp LCLK  &mkp MCLK    &mkp RCLK  &mkp MB4                &mmv MOVE_LEFT  &mkp LCLK       &mmv MOVE_RIGHT  &bootloader  &mkp LCLK  &mkp MCLK    &mkp RCLK   &kp PRINTSCREEN  &kp F12
-&trans          &sys_reset  &trans     &bootloader  &trans     &mkp MB5  &kp C_MUTE                    &mmv MOVE_DOWN                   &trans       &trans     &bootloader  &sys_reset  &kp SCROLLLOCK   &kp PAUSE_BREAK
-                                       &trans       &trans     &trans                                                                   &trans       &trans     &trans
+&studio_unlock  &kp F1      &kp F2     &kp F3       &kp F4     &kp F5                                     &mmv MOVE_Y(200)                     &kp F6       &kp F7     &kp F8       &kp F9      &kp F10          &kp F11
+&trans          &trans      &mkp LCLK  &mkp MCLK    &mkp RCLK  &mkp MB4                &mmv MOVE_X(-200)  &mkp LCLK          &mmv MOVE_X(200)  &bootloader  &mkp LCLK  &mkp MCLK    &mkp RCLK   &kp PRINTSCREEN  &kp F12
+&trans          &sys_reset  &trans     &bootloader  &trans     &mkp MB5  &kp C_MUTE                       &mmv MOVE_Y(-200)                    &trans       &trans     &bootloader  &sys_reset  &kp SCROLLLOCK   &kp PAUSE_BREAK
+                                       &trans       &trans     &trans                                                                          &trans       &trans     &trans
             >;
 
             sensor-bindings = <&scroll_encoder>;
@@ -104,11 +116,13 @@
 
         layer_4 {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans                    &trans              &trans  &kp KP_N7  &kp KP_N8  &kp KP_N9  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans            &trans  &bl BL_TOG  &trans  &trans  &kp KP_N4  &kp KP_N5  &kp KP_N6  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans            &trans              &trans  &kp N1     &kp N2     &kp N3     &trans  &trans
-                        &trans  &trans  &trans                                        &trans  &trans     &trans
+&kp GRAVE                &kp EXCLAMATION  &kp SINGLE_QUOTE  &kp HASH          &kp DOLLAR            &kp PERCENT                                &kp UP                 &kp TAB    &kp KP_N7  &kp KP_N8  &kp KP_N9  &kp ASTERISK  &kp BACKSPACE
+&trans                   &kp AT_SIGN      &kp BACKSLASH     &kp SEMICOLON     &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS            &kp LEFT  &bl BL_TOG  &kp RIGHT  &kp PLUS   &kp KP_N4  &kp KP_N5  &kp KP_N6  &kp MINUS     &kp KP_EQUAL
+&kp LANG_ZENKAKUHANKAKU  &kp K_UNDO       &kp K_CUT         &kp K_PASTE       &kp LESS_THAN         &kp GREATER_THAN       &trans              &kp DOWN               &kp ENTER  &kp KP_N1  &kp KP_N2  &kp KP_N3  &kp SLASH     &kp CARET
+                                                            &kp LEFT_BRACKET  &kp RIGHT_BRACKET     &kp LEFT_SHIFT                                                    &td0       &trans     &kp KP_N0
             >;
+
+            label = "NumPad";
         };
     };
 };
