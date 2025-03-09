@@ -225,9 +225,9 @@ layers:
   - {t: '-', s: _}
   - KP EQUAL
   - LANG ZENKAKUHANKAKU
-  - UNDO
-  - CUT
-  - PASTE
+  - Ctl+Z
+  - Ctl+X
+  - Ctl+V
   - <
   - '>'
   - {t: '$$mdi:transfer$$', type: trans}
