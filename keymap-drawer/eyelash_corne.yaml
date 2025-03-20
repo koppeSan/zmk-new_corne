@@ -208,7 +208,7 @@ layers:
   - KP 7
   - KP 8
   - KP 9
-  - '*'
+  - {t: Sft+', s: Sft+"}
   - {t: '$$mdi:backspace$$', type: backspace}
   - {t: '$$mdi:transfer$$', type: trans}
   - '@'
@@ -219,12 +219,12 @@ layers:
   - $$mdi:arrow-left-bold$$
   - '&bl BL_TOG'
   - $$mdi:arrow-right-bold$$
-  - +
+  - {t: Sft+;, s: 'Sft+:'}
   - KP 4
   - KP 5
   - KP 6
   - {t: '-', s: _}
-  - KP EQUAL
+  - {t: Sft+-, s: Sft+_}
   - LANG ZENKAKUHANKAKU
   - Ctl+Z
   - Ctl+X
@@ -238,9 +238,9 @@ layers:
   - KP 2
   - KP 3
   - {t: /, s: '?'}
-  - ^
-  - {t: '[', s: '{'}
-  - {t: ']', s: '}'}
+  - {t: '=', s: +}
+  - $$mdi:arrow-left-bold$$
+  - $$mdi:arrow-right-bold$$
   - $$mdi:apple-keyboard-shift$$
   - '&td0'
   - {type: held}
