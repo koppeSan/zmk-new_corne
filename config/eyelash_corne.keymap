@@ -118,9 +118,9 @@
 
         layer_4 {
             bindings = <
-&kp GRAVE                &kp EXCLAMATION  &kp SINGLE_QUOTE  &kp HASH          &kp DOLLAR            &kp PERCENT                                &kp UP                 &kp TAB    &kp KP_N7  &kp KP_N8  &kp KP_N9  &kp ASTERISK  &kp BACKSPACE
-&trans                   &kp AT_SIGN      &kp BACKSLASH     &kp SEMICOLON     &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS            &kp LEFT  &bl BL_TOG  &kp RIGHT  &kp PLUS   &kp KP_N4  &kp KP_N5  &kp KP_N6  &kp MINUS     &kp KP_EQUAL
-&kp LANG_ZENKAKUHANKAKU  &kp LC(Z)        &kp LC(X)         &kp LC(V)         &kp LESS_THAN         &kp GREATER_THAN       &trans              &kp DOWN               &kp ENTER  &kp KP_N1  &kp KP_N2  &kp KP_N3  &kp SLASH     &kp CARET
+&kp GRAVE                &kp EXCLAMATION  &kp SINGLE_QUOTE  &kp HASH          &kp JP_LBKT           &kp JP_RBKT                                &kp UP                 &kp TAB    &kp KP_N7  &kp KP_N8  &kp KP_N9  &kp ASTERISK  &kp BACKSPACE
+&trans                   &kp AT_SIGN      &kp BACKSLASH     &kp SEMICOLON     &kp JP_LPAR           &kp JP_RPAR            &kp LEFT  &bl BL_TOG  &kp RIGHT  &kp PLUS   &kp KP_N4  &kp KP_N5  &kp KP_N6  &kp MINUS     &kp KP_EQUAL
+&kp LANG_ZENKAKUHANKAKU  &kp LC(Z)        &kp LC(X)         &kp LC(V)         &kp JP_LBRC           &kp JP_RBRC            &trans              &kp DOWN               &kp ENTER  &kp KP_N1  &kp KP_N2  &kp KP_N3  &kp SLASH     &kp CARET
                                                             &kp LEFT_BRACKET  &kp RIGHT_BRACKET     &kp LEFT_SHIFT                                                    &td0       &trans     &kp KP_N0
             >;
 
