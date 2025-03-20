@@ -201,8 +201,8 @@ layers:
   - '!'
   - {t: '''', s: '"'}
   - '#'
-  - $
-  - '%'
+  - {t: ']', s: '}'}
+  - '#'
   - $$mdi:arrow-up-bold$$
   - $$mdi:keyboard-tab$$
   - KP 7
@@ -214,8 +214,8 @@ layers:
   - '@'
   - {t: \, s: '|'}
   - {t: ;, s: ':'}
-  - (
-  - )
+  - {t: Sft+8, s: Sft+*}
+  - {t: Sft+9, s: Sft+(}
   - $$mdi:arrow-left-bold$$
   - '&bl BL_TOG'
   - $$mdi:arrow-right-bold$$
@@ -229,8 +229,8 @@ layers:
   - Ctl+Z
   - Ctl+X
   - Ctl+V
-  - <
-  - '>'
+  - {t: 'Sft+]', s: 'Sft+}'}
+  - Sft+#
   - {t: '$$mdi:transfer$$', type: trans}
   - $$mdi:arrow-down-bold$$
   - {t: '$$mdi:keyboard-return$$', type: enter}
