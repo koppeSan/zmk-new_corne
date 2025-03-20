@@ -154,7 +154,7 @@ layers:
   - F3
   - F4
   - F5
-  - '&mmv MOVE_Y(200)'
+  - '&mmv MOVE_Y(-200)'
   - F6
   - F7
   - F8
@@ -162,29 +162,29 @@ layers:
   - F10
   - F11
   - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
-  - $$mdi:mouse-left-click-outline$$
-  - $$mdi:mouse-scroll-wheel$$
-  - $$mdi:mouse-right-click-outline$$
-  - '&mkp MB4'
+  - F6
+  - F7
+  - F8
+  - F9
+  - F10
   - '&mmv MOVE_X(-200)'
   - $$mdi:mouse-left-click-outline$$
   - '&mmv MOVE_X(200)'
-  - $$mdi:progress-download$$
   - $$mdi:mouse-left-click-outline$$
+  - $$mdi:mouse-right-click-outline$$
   - $$mdi:mouse-scroll-wheel$$
   - $$mdi:mouse-right-click-outline$$
   - PRINTSCREEN
   - F12
   - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:backup-restore$$', type: bootloader}
+  - F11
+  - F12
   - {t: '$$mdi:transfer$$', type: trans}
-  - $$mdi:progress-download$$
   - {t: '$$mdi:transfer$$', type: trans}
-  - '&mkp MB5'
-  - $$mdi:volume-off$$
-  - '&mmv MOVE_Y(-200)'
-  - {t: '$$mdi:transfer$$', type: trans}
+  - PRINTSCREEN
+  - Alt+F4
+  - '&mmv MOVE_Y(200)'
+  - $$mdi:mouse-scroll-wheel$$
   - {t: '$$mdi:transfer$$', type: trans}
   - $$mdi:progress-download$$
   - {t: '$$mdi:backup-restore$$', type: bootloader}
