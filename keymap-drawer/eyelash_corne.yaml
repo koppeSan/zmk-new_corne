@@ -203,7 +203,7 @@ layers:
   - {t: ;, s: ':'}
   - {t: ']', s: '}'}
   - '#'
-  - $$mdi:arrow-up-bold$$
+  - PgUp
   - $$mdi:keyboard-tab$$
   - {t: '7', s: '&'}
   - {t: '8', s: '*'}
@@ -216,9 +216,9 @@ layers:
   - {t: '''', s: '"'}
   - {t: Sft+8, s: Sft+*}
   - {t: Sft+9, s: Sft+(}
-  - $$mdi:arrow-left-bold$$
+  - HOME
   - '&bl BL_TOG'
-  - $$mdi:arrow-right-bold$$
+  - END
   - {t: Sft+;, s: 'Sft+:'}
   - {t: '4', s: $}
   - {t: '5', s: '%'}
@@ -232,16 +232,23 @@ layers:
   - {t: 'Sft+]', s: 'Sft+}'}
   - Sft+#
   - {t: '$$mdi:transfer$$', type: trans}
-  - $$mdi:arrow-down-bold$$
-  - {t: '$$mdi:keyboard-return$$', type: enter}
+  - PgDn
+  - {t: '0', s: )}
   - {t: '1', s: '!'}
   - {t: '2', s: '@'}
   - {t: '3', s: '#'}
   - {t: /, s: '?'}
   - {t: '=', s: +}
-  - $$mdi:arrow-left-bold$$
-  - $$mdi:arrow-right-bold$$
+  - {t: '$$mdi:transfer$$', type: trans}
+  - {t: '$$mdi:transfer$$', type: trans}
   - $$mdi:apple-keyboard-shift$$
   - {t: '&td0', type: held}
-  - {t: '$$mdi:transfer$$', type: trans}
+  - {t: '$$mdi:keyboard-return$$', type: enter}
   - {t: '0', s: )}
+combos:
+- p: [28, 12]
+  k: $$mdi:backspace-reverse-outline$$
+- p: [42, 43, 44]
+  k: Alt+Ctl+$$mdi:backspace-reverse-outline$$
+- p: [13, 28]
+  k: Sft+Ctl+$$mdi:keyboard-esc$$
