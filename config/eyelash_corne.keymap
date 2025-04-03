@@ -140,7 +140,7 @@
 &kp GRAVE       &kp JP_DLLR  &kp JP_SQT   &kp JP_SEMI   &kp JP_LBKT  &kp JP_RBKT                         &kp PAGE_UP             &kp TAB      &kp N7     &kp N8  &kp N9  &kp JP_ASTRK  &kp BACKSPACE
 &trans          &kp JP_YEN   &kp JP_DQT   &kp JP_COLON  &kp JP_LPAR  &kp JP_RPAR               &kp HOME  &bl BL_TOG     &kp END  &kp JP_PLUS  &kp N4     &kp N5  &kp N6  &kp JP_MINUS  &kp JP_EQUAL
 &kp LEFT_SHIFT  &kp JP_AT    &kp JP_BSLH  &kp JP_AND    &kp JP_LBRC  &kp JP_RBRC     &trans              &kp PAGE_DOWN           &kp N0       &kp N1     &kp N2  &kp N3  &kp JP_SLASH  &kp JP_CARET
-                                         &trans        &trans       &kp LEFT_SHIFT                                              &td0         &kp ENTER  &none
+                                         &trans        &trans       &kp LEFT_SHIFT                                              &trans         &kp ENTER  &none
 
             >;
 
