@@ -65,6 +65,25 @@
         };
     };
 
+    combos {
+        compatible = "zmk,combos";
+
+        SHIFT+BS..DEL {
+            bindings = <&kp DELETE>;
+            key-positions = <28 12>;
+        };
+
+        Ctrl+Alt+DEL {
+            bindings = <&kp LA(LC(DEL))>;
+            key-positions = <42 43 44>;
+        };
+
+        taskManager {
+            bindings = <&kp LS(LC(ESCAPE))>;
+            key-positions = <13 28>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -83,11 +102,10 @@
         lower_layer {
             display-name = "SETTINGS";
             bindings = <
-&trans  &kp N1           &kp N2          &kp N3      &kp N4      &kp N5                                         &mmv MOVE_UP                     &kp N6           &kp N7           &kp N8           &kp N9           &kp N0    &kp BSPC
-&trans  &bt BT_NXT       &bt BT_SEL 0      &bt BT_PRV &none &none                          &mmv MOVE_LEFT  &mkp LCLK       &mmv MOVE_RIGHT  &kp LEFT         &kp DOWN         &kp UP           &kp RIGHT        &kp HOME  &kp PG_UP
-&bt BT_CLR  &rgb_ug RGB_TOG  &rgb_ug RGB_ON  &trans      &trans      &rgb_ug RGB_EFF  &kp C_MUTE                    &mmv MOVE_DOWN                   &rgb_ug RGB_EFR  &rgb_ug RGB_SPI  &rgb_ug RGB_BRI  &rgb_ug RGB_BRD  &kp END   &kp PG_DN
-                                         &trans      &trans      &trans                                                                          &kp INS          &kp DEL          &trans
-
+&trans      &kp N1           &kp N2          &kp N3      &kp N4  &kp N5                                         &mmv MOVE_UP                     &kp N6           &kp N7           &kp N8           &kp N9           &kp N0    &kp BSPC
+&trans      &bt BT_NXT       &bt BT_SEL 0    &bt BT_PRV  &none   &none                          &mmv MOVE_LEFT  &mkp LCLK       &mmv MOVE_RIGHT  &kp LEFT         &kp DOWN         &kp UP           &kp RIGHT        &kp HOME  &kp PG_UP
+&bt BT_CLR  &rgb_ug RGB_TOG  &rgb_ug RGB_ON  &trans      &trans  &rgb_ug RGB_EFF  &kp C_MUTE                    &mmv MOVE_DOWN                   &rgb_ug RGB_EFR  &rgb_ug RGB_SPI  &rgb_ug RGB_BRI  &rgb_ug RGB_BRD  &kp END   &kp PG_DN
+                                             &trans      &trans  &trans                                                                          &kp INS          &kp DEL          &trans
             >;
 
             sensor-bindings = <&rgb_encoder>;
@@ -119,10 +137,10 @@
 
         layer_4 {
             bindings = <
-&kp GRAVE                &kp JP_DLLR  &kp JP_SQT  &kp JP_SEMI       &kp JP_LBKT  &kp JP_RBKT                         &kp UP                 &kp TAB      &kp N7  &kp N8  &kp N9  &kp JP_ASTRK  &kp BACKSPACE
-&trans                   &kp JP_YEN      &kp JP_DQT     &kp JP_COLON  &kp JP_LPAR  &kp JP_RPAR               &kp LEFT  &bl BL_TOG  &kp RIGHT  &kp JP_PLUS  &kp N4  &kp N5  &kp N6  &kp JP_MINUS  &kp JP_EQUAL
-&kp LEFT_SHIFT  &kp JP_AT        &kp JP_BSLH         &kp JP_AND      &kp JP_LBRC  &kp JP_RBRC     &trans              &kp DOWN               &kp ENTER    &kp N1  &kp N2  &kp N3  &kp JP_SLASH  &kp JP_CARET
-                                                            &kp LEFT       &kp RIGHT    &kp LEFT_SHIFT                                             &td0         &trans     &kp N0
+&kp GRAVE       &kp JP_DLLR  &kp JP_SQT   &kp JP_SEMI   &kp JP_LBKT  &kp JP_RBKT                         &kp PAGE_UP             &kp TAB      &kp N7     &kp N8  &kp N9  &kp JP_ASTRK  &kp BACKSPACE
+&trans          &kp JP_YEN   &kp JP_DQT   &kp JP_COLON  &kp JP_LPAR  &kp JP_RPAR               &kp HOME  &bl BL_TOG     &kp END  &kp JP_PLUS  &kp N4     &kp N5  &kp N6  &kp JP_MINUS  &kp JP_EQUAL
+&kp LEFT_SHIFT  &kp JP_AT    &kp JP_BSLH  &kp JP_AND    &kp JP_LBRC  &kp JP_RBRC     &trans              &kp PAGE_DOWN           &kp N0       &kp N1     &kp N2  &kp N3  &kp JP_SLASH  &kp JP_CARET
+                                          &trans        &trans       &kp LEFT_SHIFT                                              &td0         &kp ENTER  &kp N0
             >;
 
             label = "NumPad";
