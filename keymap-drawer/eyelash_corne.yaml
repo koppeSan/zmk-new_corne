@@ -203,7 +203,7 @@ layers:
   - {t: ;, s: ':'}
   - {t: ']', s: '}'}
   - '#'
-  - PgUp
+  - PG UP
   - $$mdi:keyboard-tab$$
   - {t: '7', s: '&'}
   - {t: '8', s: '*'}
@@ -232,7 +232,7 @@ layers:
   - {t: 'Sft+]', s: 'Sft+}'}
   - Sft+#
   - {t: '$$mdi:transfer$$', type: trans}
-  - PgDn
+  - PG DN
   - '0'
   - {t: '1', s: '!'}
   - {t: '2', s: '@'}
