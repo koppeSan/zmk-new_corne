@@ -228,7 +228,7 @@ layers:
   - $$mdi:apple-keyboard-shift$$
   - {t: '[', s: '{'}
   - INT1
-  - JP AND
+  - {t: Sft+6, s: Sft+^}
   - {t: 'Sft+]', s: 'Sft+}'}
   - Sft+#
   - {t: '$$mdi:transfer$$', type: trans}
