@@ -244,7 +244,7 @@ layers:
   - $$mdi:apple-keyboard-shift$$
   - {t: '&td0', type: held}
   - {t: '$$mdi:keyboard-return$$', type: enter}
-  - {t: '0', s: )}
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
 combos:
 - p: [28, 12]
   k: $$mdi:backspace-reverse-outline$$
