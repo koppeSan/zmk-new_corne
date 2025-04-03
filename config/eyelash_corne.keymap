@@ -68,12 +68,12 @@
     combos {
         compatible = "zmk,combos";
 
-        SHIFT+BS {
+        SHIFTBS {
             bindings = <&kp DELETE>;
             key-positions = <28 12>;
         };
 
-        Ctrl+Alt+DEL {
+        CtrlAltDEL {
             bindings = <&kp LA(LC(DEL))>;
             key-positions = <42 43 44>;
         };
