@@ -68,7 +68,7 @@
     combos {
         compatible = "zmk,combos";
 
-        SHIFT+BS..DEL {
+        SHIFT+BS-DEL {
             bindings = <&kp DELETE>;
             key-positions = <28 12>;
         };
