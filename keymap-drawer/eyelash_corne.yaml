@@ -233,7 +233,7 @@ layers:
   - Sft+#
   - {t: '$$mdi:transfer$$', type: trans}
   - PgDn
-  - {t: '0', s: )}
+  - '0'
   - {t: '1', s: '!'}
   - {t: '2', s: '@'}
   - {t: '3', s: '#'}
@@ -242,9 +242,9 @@ layers:
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - $$mdi:apple-keyboard-shift$$
-  - {type: held}
+  - {t: '&td0', type: held}
   - {t: '$$mdi:keyboard-return$$', type: enter}
-  - {t: '$$mdi:minus-circle-outline$$', type: none}
+  - {t: '$$mdi:transfer$$', type: trans}
 combos:
 - p: [28, 12]
   k: $$mdi:backspace-reverse-outline$$
