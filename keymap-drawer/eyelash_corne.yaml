@@ -29,7 +29,7 @@ layers:
   - L
   - {t: '-', s: _}
   - {t: ;, s: ':'}
-  - {t: LANG ZENKAKUHANKAKU, h: '$$mdi:apple-keyboard-shift$$'}
+  - {t: '`', h: '$$mdi:apple-keyboard-shift$$', s: '~'}
   - Z
   - X
   - C
@@ -170,7 +170,7 @@ layers:
   - '&mmv MOVE_X(-250)'
   - $$mdi:mouse-left-click-outline$$
   - '&mmv MOVE_X(250)'
-  - {t: '$$mdi:minus-circle-outline$$', type: none}
+  - $$mdi:mouse-scroll-wheel$$
   - $$mdi:mouse-left-click-outline$$
   - $$mdi:mouse-right-click-outline$$
   - $$mdi:mouse-scroll-wheel$$
