@@ -92,7 +92,7 @@
             bindings = <
 &kp TAB                             &kp Q  &kp W  &kp E     &kp R        &kp T                                   &kp UP                 &kp Y        &kp U            &kp I      &kp O    &kp P      &kp ESCAPE
 &mo 1                               &kp A  &kp S  &kp D     &kp F        &kp G                         &kp LEFT  &kp DELETE  &kp RIGHT  &kp H        &kp J            &kp K      &kp L    &kp MINUS  &kp SEMICOLON
-&mt LEFT_SHIFT LANG_ZENKAKUHANKAKU  &kp Z  &kp X  &kp C     &kp V        &kp B            &kp SPACE              &kp DOWN               &kp N        &kp M            &kp COMMA  &kp DOT  &kp FSLH   &kp ESC
+&mt LEFT_SHIFT JP_ZKHK  &kp Z  &kp X  &kp C     &kp V        &kp B            &kp SPACE              &kp DOWN               &kp N        &kp M            &kp COMMA  &kp DOT  &kp FSLH   &kp ESC
                                                   &kp LGUI  &lt 3 UNDER  &mt LCTRL SPACE                                                &lt 4 ENTER  &lt 4 BACKSPACE  &kp RALT
             >;
 
@@ -127,7 +127,7 @@
             display-name = "Fn&Web";
             bindings = <
 &studio_unlock  &kp F1  &kp F2   &kp F3   &kp F4   &none                                    &mmv MOVE_Y(-250)                    &none   &msc SCRL_LEFT  &msc SCRL_UP    &msc SCRL_RIGHT  &kp F10          &kp F11
-&trans          &kp F5  &kp F6   &kp F7   &kp F8   &none                 &mmv MOVE_X(-250)  &mkp LCLK          &mmv MOVE_X(250)  &none   &mkp LCLK       &mkp RCLK       &mkp MCLK        &kp PRINTSCREEN  &kp F12
+&trans          &kp F5  &kp F6   &kp F7   &kp F8   &none                 &mmv MOVE_X(-250)  &mkp LCLK          &mmv MOVE_X(250)  &mkp MCLK   &mkp LCLK       &mkp RCLK       &mkp MCLK        &kp PRINTSCREEN  &kp F12
 &trans          &kp F9  &kp F10  &kp F11  &kp F12  &none   &kp LA(F4)                       &mmv MOVE_Y(250)                     &none   &mkp MB4        &msc SCRL_DOWN  &mkp MB5         &kp SCROLLLOCK   &kp PAUSE_BREAK
                                  &trans   &trans   &trans                                                                        &trans  &trans          &trans
             >;
