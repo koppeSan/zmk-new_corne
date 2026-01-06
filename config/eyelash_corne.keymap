@@ -102,13 +102,13 @@
         lower_layer {
             display-name = "SETTINGS";
             bindings = <
-&trans      &bt BT_SEL 0     &bt BT_SEL 1    &bt BT_SEL 2     &bt BT_SEL 3  &bt BT_SEL 4                                &mmv MOVE_UP                     &kp N6           &kp PG_UP  &kp UP    &kp N9           &kp N0   &kp BSPC
-&trans      &bt BT_PRV       &bt BT_NXT      &none            &none         &none                       &mmv MOVE_LEFT  &mkp LCLK       &mmv MOVE_RIGHT  &kp HOME         &kp LEFT   &kp DOWN  &kp RIGHT        &kp END  &kp PG_UP
-&bt BT_CLR  &rgb_ug RGB_TOG  &rgb_ug RGB_ON  &rgb_ug RGB_EFF  &trans        &none         &kp C_MUTE                    &mmv MOVE_DOWN                   &rgb_ug RGB_EFR  &kp PG_DN  &kp DOWN  &rgb_ug RGB_BRD  &kp END  &kp PG_DN
-                                             &trans           &trans        &trans                                                                       &trans           &kp DEL    &trans
+&trans      &bt BT_SEL 0     &bt BT_SEL 1    &bt BT_SEL 2     &bt BT_SEL 3  &bt BT_SEL 4                               &mmv MOVE_UP                     &kp N6           &kp PG_UP  &kp UP    &kp N9           &kp N0   &kp BSPC
+&trans      &bt BT_PRV       &bt BT_NXT      &none            &none         &none                      &mmv MOVE_LEFT  &mkp LCLK       &mmv MOVE_RIGHT  &kp HOME         &kp LEFT   &kp DOWN  &kp RIGHT        &kp END  &kp PG_UP
+&bt BT_CLR  &rgb_ug RGB_TOG  &rgb_ug RGB_ON  &rgb_ug RGB_EFF  &trans        &none         &kp LC(W)                    &mmv MOVE_DOWN                   &rgb_ug RGB_EFR  &kp PG_DN  &kp DOWN  &rgb_ug RGB_BRD  &kp END  &kp PG_DN
+                                             &trans           &trans        &trans                                                                      &trans           &kp DEL    &trans
             >;
 
-            sensor-bindings = <&inc_dec_kp C_VOLUME_UP K_VOLUME_DOWN>;
+            sensor-bindings = <&inc_dec_kp LC(TAB) LS(LC(TAB))>;
         };
 
         raise_layer {
