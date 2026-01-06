@@ -60,7 +60,7 @@ layers:
   - {t: '6', s: ^}
   - PG UP
   - $$mdi:arrow-up-bold$$
-  - {t: '9', s: (}
+  - $$mdi:pan-up$$
   - {t: '0', s: )}
   - {t: '$$mdi:backspace$$', type: backspace}
   - {type: held}
@@ -89,7 +89,7 @@ layers:
   - RGB EFR
   - PG DN
   - $$mdi:arrow-down-bold$$
-  - RGB BRD
+  - $$mdi:pan-down$$
   - END
   - PG DN
   - {t: '$$mdi:transfer$$', type: trans}
@@ -184,8 +184,8 @@ layers:
   - {t: '$$mdi:minus-circle-outline$$', type: none}
   - Alt+F4
   - {t: '$$mdi:menu-down$$', s: '$$mdi:mouse$$'}
-  - {t: '$$mdi:minus-circle-outline$$', type: none}
   - '&mkp MB4'
+  - '&mkp MB5'
   - $$mdi:pan-down$$
   - $$mdi:arrow-right-bold$$
   - {t: '$$mdi:minus-circle-outline$$', type: none}
