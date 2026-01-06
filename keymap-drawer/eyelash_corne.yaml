@@ -28,7 +28,7 @@ layers:
   - K
   - L
   - {t: '-', s: _}
-  - {t: ;, s: ':'}
+  - PgUp
   - {t: '`', h: Fn&Web, s: '~'}
   - Z
   - X
@@ -42,7 +42,7 @@ layers:
   - {t: ',', s: <}
   - {t: ., s: '>'}
   - {t: /, s: '?'}
-  - $$mdi:keyboard-esc$$
+  - PgDn
   - LGUI
   - {t: _, h: '$$mdi:apple-keyboard-shift$$'}
   - {t: '$$mdi:keyboard-space$$', h: '$$mdi:apple-keyboard-control$$'}
