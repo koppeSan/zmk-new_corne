@@ -89,10 +89,10 @@
         default_layer {
             display-name = "QWERTY";
             bindings = <
-&lt 6 TAB      &kp Q  &kp W  &kp E     &kp R                 &kp T                                           &kp UP                 &kp Y        &kp U            &kp I                  &kp O    &kp P      &kp ESCAPE
-&mo 1          &kp A  &kp S  &kp D     &kp F                 &kp G                                 &kp LEFT  &kp DELETE  &kp RIGHT  &kp H        &kp J            &kp K                  &kp L    &kp MINUS  &kp PAGE_UP
+&lt 6 TAB      &kp Q  &kp W  &kp E     &kp R                 &kp T                                           &kp UP                 &kp Y        &kp U            &kp I                  &kp O    &kp P      &kp PAGE_UP
+&mo 1          &kp A  &kp S  &kp D     &kp F                 &kp G                                 &kp LEFT  &kp DELETE  &kp RIGHT  &kp H        &kp J            &kp K                  &kp L    &kp MINUS  &kp PAGE_DN
 &lt 2 JP_ZKHK  &kp Z  &kp X  &kp C     &kp V                 &kp B            &lt 6 PRINTSCREEN              &kp DOWN               &kp N        &kp M            &kp COMMA              &kp DOT  &kp FSLH   &kp RALT
-                             &kp LGUI  &mt LEFT_SHIFT GRAVE  &mt LCTRL SPACE                                                        &lt 2 ENTER  &lt 3 BACKSPACE  &lt 1 INTERNATIONAL_5
+                             &kp LGUI  &mt LEFT_SHIFT JP_ZKHK  &mt LCTRL SPACE                                                        &lt 2 ENTER  &lt 3 BACKSPACE  &lt 1 INTERNATIONAL_5
             >;
 
             sensor-bindings = <&scroll_encoder>;
@@ -137,10 +137,10 @@
         NumSYM {
             display-name = "NUMSYM";
             bindings = <
-&trans  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp N5                                          &mmv MOVE_UP                         &kp NUMBER_6    &kp N7  &kp N8  &kp N9        &kp N0           &kp BSPC
-&trans  &kp JP_EXCL   &kp JP_DQT    &kp JP_LBRC   &kp JP_LPAR   &kp JP_LBKT                     &mmv MOVE_LEFT  &mkp LCLK           &mmv MOVE_RIGHT  &kp JP_PLUS     &kp N4  &kp N5  &kp N6        &kp JP_MINUS     &kp GRAVE
-&trans  &kp JP_QMARK  &kp JP_YEN    &kp JP_PIPE   &kp JP_COLON  &kp JP_CARET  &mmv MOVE_DOWN                    &mt JP_EQUAL KP_N0                   &kp N1          &kp N2  &kp N3  &kp JP_SLASH  &kp RIGHT_SHIFT  &trans
-                                    &mo 6         &kp SPACE     &trans                                                                               &trans jjjjjjj  &trans
+&trans  &kp TILDE       &kp JP_SQT    &kp JP_LBRC  &kp JP_RBRC  &kp JP_SEMI                                     &mmv MOVE_UP                       &kp NUMBER_6    &kp N7  &kp N8  &kp N9        &kp N0           &kp BSPC
+&trans  &kp JP_EXCL     &kp JP_DQT    &kp JP_LPAR  &kp JP_RPAR  &kp JP_COLON                     &mmv MOVE_LEFT  &mkp LCLK        &mmv MOVE_RIGHT  &kp JP_PLUS     &kp N4  &kp N5  &kp N6        &kp JP_MINUS     &kp GRAVE
+&trans  &kp QUESTION    &kp JP_GRAVE  &kp JP_LBKT  &kp JP_RBKT  &kp JP_YEN                                      &mmv MOVE_DOWN                     &mt JP_EQUAL KP_N0    &kp N1  &kp N2  &kp N3  &kp JP_SLASH  &kp RIGHT_SHIFT  
+                                    &mo 6         &kp SPACE     &trans                                                                               &trans 　　　　  &trans &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_BRIGHTNESS_INC C_BRIGHTNESS_DEC>;
@@ -149,10 +149,10 @@
         layer_4 {
             display-name = "NumPad";
             bindings = <
-&kp GRAVE       &kp JP_DLLR  &kp JP_SQT   &kp JP_SEMI   &kp JP_LBKT  &kp JP_RBKT                                        &kp PG_UP            &kp TAB       &kp N7     &kp N8  &kp N9  &kp JP_ASTRK  &kp BACKSPACE
-&trans          &kp JP_YEN   &kp JP_DQT   &kp JP_COLON  &kp JP_LPAR  &kp JP_RPAR                              &kp HOME  &bl BL_TOG  &kp END  &kp JP_PLUS   &kp N4     &kp N5  &kp N6  &kp JP_MINUS  &kp JP_EQUAL
-&kp LEFT_SHIFT  &kp JP_AT    &kp JP_BSLH  &kp JP_AMPS   &kp JP_LBRC  &kp JP_RBRC     &kp C_BRIGHTNESS_AUTO              &kp PG_DN            &kp NUMBER_0  &kp N1     &kp N2  &kp N3  &kp JP_SLASH  &kp JP_CARET
-                                          &trans        &trans       &kp LEFT_SHIFT                                                          &td0          &kp ENTER  &trans
+&kp GRAVE       &kp JP_TILDE  &kp JP_AT     &kp JP_LBRC  &kp JP_RBRC  &kp JP_SEMI                                       &kp PG_UP            &kp TAB       &kp N7     &kp N8  &kp N9  &kp JP_ASTRK  &kp BACKSPACE
+&trans          &kp JP_EXCL   &kp JP_SQT    &kp JP_LPAR  &kp JP_RPAR  &kp JP_COLON                            &kp HOME  &bl BL_TOG  &kp END  &kp JP_PLUS   &kp N4     &kp N5  &kp N6  &kp JP_MINUS  &kp JP_EQUAL
+&kp LEFT_SHIFT  &kp JP_CARET  &kp JP_GRAVE  &kp JP_LBKT  &kp JP_RBKT  &kp JP_BSLH    &kp C_BRIGHTNESS_AUTO              &kp PG_DN            &kp N0        &kp N1     &kp N2  &kp N3  &kp JP_SLASH  &kp JP_CARET
+                                          &trans        &trans       &trans          &kp LEFT_SHIFT                                          &td0          &kp ENTER  &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_BRIGHTNESS_INC C_BRIGHTNESS_DEC>;
@@ -161,10 +161,10 @@
         layer_6 {
             display-name = "shftSYM";
             bindings = <
-&trans  &kp JP_EXCL   &kp JP_AT     &kp JP_HASH  &kp JP_DLLR  &kp JP_PRCNT                                    &mmv MOVE_UP                         &kp JP_CARET  &kp JP_AMPS  &kp JP_ASTRK  &kp JP_LPAR   &kp JP_RPARj     &kp BSPC
-&trans  &kp JP_EXCL   &kp JP_SQT    &kp JP_RBRC  &kp JP_RPAR  &kp JP_RBKT                     &mmv MOVE_LEFT  &mkp LCLK           &mmv MOVE_RIGHT  &kp JP_PLUS   &kp JP_DLLR  &kp JP_PRCNT  &kp JP_CARET  &kp JP_UNDER     &kp GRAVE
-&trans  &kp JP_CARET  &kp JP_GRAVE  &kp JP_BSLH  &kp JP_SEMI  &kp JP_TILDE  &mmv MOVE_DOWN                    &mt ENTER JP_EQUAL                   &kp JP_EXCL   &kp JP_AT    &kp JP_HASH   &kp JP_PIPE   &kp RIGHT_SHIFT  &trans
-                                    &trans       &kp trans    &trans                                                                               &trans        &trans
+&trans  &kp JP_EXCL   &kp JP_AT     &kp JP_HASH  &kp JP_DLLR  &kp JP_PRCNT                                    &mmv MOVE_UP                         &kp JP_CARET        &kp JP_AMPS  &kp JP_ASTRK  &kp JP_LPAR   &kp JP_CARET   &kp BSPC
+&trans  &kp JP_EXCL   &kp JP_SQT    &kp JP_RBRC  &kp JP_RPAR  &kp JP_RBKT                     &mmv MOVE_LEFT  &mkp LCLK           &mmv MOVE_RIGHT  &kp JP_PLUS         &kp JP_DLLR  &kp JP_PRCNT  &kp JP_CARET  &kp JP_UNDER   &kp GRAVE
+&trans  &kp JP_CARET  &kp JP_GRAVE  &kp JP_BSLH  &kp JP_SEMI  &kp JP_TILDE  &mmv MOVE_DOWN                    &mt ENTER JP_EQUAL                   &mt ENTER JP_EQUAL  &kp JP_EXCL  &kp JP_AT     &kp JP_HASH   &kp JP_PRCNT   &trans
+                                    &trans       &kp trans    &trans                                                                               &trans        &trans  &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_BRIGHTNESS_INC C_BRIGHTNESS_DEC>;
