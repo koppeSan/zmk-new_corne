@@ -1,5 +1,8 @@
 #define ZMK_POINTING_DEFAULT_MOVE_VAL 1200  // 600
 #define ZMK_POINTING_DEFAULT_SCRL_VAL 25   // 10
+#define MOVE_SLOW 600   // slow cursor move (Mouse layer, left hand)
+#define MOVE_DIAG 250   // diagonal cursor move (Mouse layer)
+#define SCRL_FAST 150   // fast scroll (Mouse layer)
 
 #include <input/processors.dtsi>
 #include <input/processors/runtime-input-processor.dtsi>
@@ -107,19 +110,9 @@
     combos {
         compatible = "zmk,combos";
 
-        SHIFTBS {
-            bindings = <&kp DELETE>;
-            key-positions = <28 12>;
-        };
-
-        CtrlAltDEL {
-            bindings = <&kp LA(LC(DEL))>;
-            key-positions = <42 43 44>;
-        };
-
-        taskManager {
-            bindings = <&kp LS(LC(ESCAPE))>;
-            key-positions = <13 28>;
+        printScreen {
+            bindings = <&kp PRINTSCREEN>;
+            key-positions = <13 15>;
         };
     };
 
@@ -129,58 +122,58 @@
         default_layer {
             display-name = "QWERTY";
             bindings = <
-&lt 6 TAB      &kp Q  &kp W  &kp E     &kp R                 &kp T                                           &kp UP                 &kp Y        &kp U            &kp I                  &kp O    &kp P      &kp PAGE_UP
-&mo 1          &kp A  &kp S  &kp D     &kp F                 &kp G                                 &kp LEFT  &kp DELETE  &kp RIGHT  &kp H        &kp J            &kp K                  &kp L    &kp MINUS  &kp PAGE_DOWN
-&lt 2 JP_ZKHK  &kp Z  &kp X  &kp C     &kp V                 &kp B            &lt 6 PRINTSCREEN              &kp DOWN               &kp N        &kp M            &kp COMMA              &kp DOT  &kp FSLH   &kp RALT
-                             &kp LGUI  &mt LEFT_SHIFT JP_ZKHK  &mt LCTRL SPACE                                                        &lt 2 ENTER  &lt 3 BACKSPACE  &lt 1 INTERNATIONAL_5
+&kp TAB        &kp Q  &kp W  &kp E     &kp R                   &kp T                               &kp UP                 &kp Y        &kp U       &kp I         &kp O    &kp P      &kp ESC
+&kp LGUI       &kp A  &kp S  &kp D     &kp F                   &kp G            &kp LEFT           &kp DELETE  &kp RIGHT  &kp H        &kp J       &kp K         &kp L    &kp MINUS  &kp PAGE_UP
+&lt 3 JP_ZKHK  &kp Z  &kp X  &kp C     &kp V                   &kp B            &lt 6 PRINTSCREEN  &kp DOWN               &kp N        &kp M       &kp COMMA     &kp DOT  &kp FSLH   &kp PAGE_DOWN
+                             &kp LALT  &mt LEFT_SHIFT JP_ZKHK  &mt LCTRL SPACE                                            &lt 2 ENTER  &lt 4 BSPC  &lt 1 DELETE
             >;
 
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
+            sensor-bindings = <&inc_dec_kp C_BRIGHTNESS_INC C_BRIGHTNESS_DEC>;
         };
 
         MouseLayer {
             display-name = "Mouse";
             bindings = <
-&trans      &none            &mmv MOVE_UP    &none            &none   &none                                &mmv MOVE_UP                     &mkp LCLK       &msc SCRL_LEFT  &msc SCRL_UP    &msc SCRL_RIGHT  &mt HOME PAGE_UP   &kp LC(PAGE_UP)
-&trans      &mmv MOVE_LEFT   &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &none   &none                &mmv MOVE_LEFT  &mkp LCLK       &mmv MOVE_RIGHT  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_UP    &mmv MOVE_RIGHT  &mt END PAGE_DOWN  &kp LC(PAGE_DOWN)
-&bt BT_CLR  &rgb_ug RGB_TOG  &rgb_ug RGB_ON  &rgb_ug RGB_EFF  &trans  &none   &kp LC(W)                    &mmv MOVE_DOWN                   &mkp MB4        &mkp RCLK       &msc SCRL_DOWN  &kp RIGHT        &trans             &kp LC(W)
-                                             &trans           &trans  &trans                                                                &trans          &kp DEL         &trans
+&kp C_VOL_UP  &kp C_BRIGHTNESS_INC  &mmv MOVE(-MOVE_DIAG, -MOVE_DIAG)  &mmv MOVE_Y(-MOVE_SLOW)  &mmv MOVE(MOVE_DIAG, -MOVE_DIAG)  &none                   &mmv MOVE_UP                     &msc MOVE_X(-SCRL_FAST)  &msc MOVE_Y(SCRL_FAST)  &msc MOVE_Y(-SCRL_FAST)  &msc MOVE_X(SCRL_FAST)  &mt HOME PAGE_UP   &kp LC(W)
+&kp C_VOL_DN  &kp C_BRIGHTNESS_DEC  &mmv MOVE_X(-MOVE_SLOW)            &mmv MOVE_Y(MOVE_SLOW)   &mmv MOVE_X(MOVE_SLOW)            &none   &mmv MOVE_LEFT  &mkp LCLK       &mmv MOVE_RIGHT  &mmv MOVE_LEFT           &mkp LCLK               &mkp RCLK                &mkp MCLK               &mt END PAGE_DOWN  &kp LC(PAGE_UP)
+&kp C_MUTE    &none                 &mmv MOVE(-MOVE_DIAG, MOVE_DIAG)   &mmv MOVE_Y(MOVE_SLOW)   &mmv MOVE(MOVE_DIAG, MOVE_DIAG)   &none   &kp LC(W)       &mmv MOVE_DOWN                   &mkp MB4                 &mkp MB5                &msc SCRL_DOWN           &kp RIGHT               &trans             &kp LC(PAGE_DOWN)
+                                                                       &trans                   &trans                            &trans                                                   &trans                   &kp DEL                 &trans
             >;
 
             sensor-bindings = <&inc_dec_kp LC(TAB) LS(LC(TAB))>;
         };
 
         layer_3 {
-            display-name = "Fn&Web";
+            display-name = "Fn&Cur";
             bindings = <
-&studio_unlock  &trans  &kp F1  &kp F2   &kp F3   &kp F4                                 &mmv MOVE_UP                     &mkp MB3   &msc SCRL_LEFT  &msc SCRL_UP    &msc SCRL_RIGHT  &kp F10          &kp F11
-&trans          &trans  &kp F5  &kp F6   &kp F7   &kp F8                 &mmv MOVE_LEFT  &mkp LCLK       &mmv MOVE_RIGHT  &mkp MCLK  &mkp LCLK       &mkp RCLK       &kp LEFT         &kp PRINTSCREEN  &kp F12
-&trans          &trans  &kp F9  &kp F10  &kp F11  &kp F12  &kp LA(F4)                    &mmv MOVE_DOWN                   &mkp MB4   &mkp MB5        &msc SCRL_DOWN  &kp RIGHT        &none            &kp PAUSE_BREAK
-                                &trans   &trans   &trans                                                                  &trans     &trans          &trans
+&studio_unlock  &trans  &kp F1  &kp F2   &kp F3   &kp F4                   &mmv MOVE_UP                     &kp END       &kp LA(UP)     &kp UP       &kp LA(F4)   &kp JP_TILDE  &kp DELETE
+&trans          &trans  &kp F5  &kp F6   &kp F7   &kp F8   &mmv MOVE_LEFT  &mkp LCLK       &mmv MOVE_RIGHT  &kp HOME      &kp LEFT       &kp DOWN     &kp RIGHT    &kp JP_UNDER  &kp PAGE_UP
+&trans          &trans  &kp F9  &kp F10  &kp F11  &kp F12  &kp LA(F4)      &mmv MOVE_DOWN                   &kp LA(LEFT)  &kp LA(RIGHT)  &kp LC(TAB)  &kp LC(TAB)  &kp JP_PIPE   &kp PAGE_DOWN
+                                &trans   &trans   &trans                                                    &trans        &trans         &trans
             >;
 
             sensor-bindings = <&inc_dec_kp LC(TAB) LS(LC(TAB))>;
         };
 
         BT_setting {
-            display-name = "BT_SET";
+            display-name = "BT_LED";
             bindings = <
-&trans      &bt BT_SEL 0     &bt BT_SEL 1    &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4                                  &mmv MOVE_UP                     &kp N6           &kp PG_UP  &kp UP    &msc SCRL_UP    &kp N0   &kp BSPC
-&trans      &bt BT_PRV       &bt BT_NXT      &none         &none         &none                         &mmv MOVE_LEFT  &mkp LCLK       &mmv MOVE_RIGHT  &kp HOME         &kp LEFT   &kp DOWN  &kp RIGHT       &kp END  &kp PG_UP
-&bt BT_CLR  &rgb_ug RGB_TOG  &rgb_ug RGB_ON  &bt BT_CLR    &trans        &rgb_ug RGB_OFF  &kp LC(W)                    &mmv MOVE_DOWN                   &rgb_ug RGB_EFR  &kp PG_DN  &kp DOWN  &msc SCRL_DOWN  &kp END  &kp PG_DN
-                                             &trans        &trans        &trans                                                                         &trans           &kp DEL    &trans
+&trans  &bt BT_SEL 0     &bt BT_SEL 1    &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4                    &mmv MOVE_UP                     &kp N6           &kp PG_UP  &kp UP           &msc SCRL_UP     &kp N0           &kp ESC
+&trans  &bt BT_PRV       &bt BT_NXT      &none         &none         &none           &mmv MOVE_LEFT  &mkp LCLK       &mmv MOVE_RIGHT  &rgb_ug RGB_EFF  &none      &rgb_ug RGB_SPI  &rgb_ug RGB_SAI  &rgb_ug RGB_HUI  &rgb_ug RGB_BRI
+&trans  &rgb_ug RGB_TOG  &rgb_ug RGB_ON  &bt BT_CLR    &trans        &none           &kp LC(W)       &mmv MOVE_DOWN                   &rgb_ug RGB_EFR  &none      &rgb_ug RGB_SPD  &rgb_ug RGB_SAD  &rgb_ug RGB_HUD  &rgb_ug RGB_BRD
+                                         &trans        &trans        &bt BT_CLR_ALL                                                   &rgb_ug RGB_TOG  &kp DEL    &trans
             >;
 
             sensor-bindings = <&inc_dec_kp LC(TAB) LS(LC(TAB))>;
         };
 
         NumSYM {
-            display-name = "NUMSYM";
+            display-name = "NumSym";
             bindings = <
-&trans  &kp TILDE       &kp JP_SQT    &kp JP_LBRC  &kp JP_RBRC  &kp JP_SEMI                                     &mmv MOVE_UP                       &kp NUMBER_6    &kp N7  &kp N8  &kp N9        &kp N0           &kp BSPC
-&trans  &kp JP_EXCL     &kp JP_DQT    &kp JP_LPAR  &kp JP_RPAR  &kp JP_COLON                     &mmv MOVE_LEFT  &mkp LCLK        &mmv MOVE_RIGHT  &kp JP_PLUS     &kp N4  &kp N5  &kp N6        &kp JP_MINUS     &kp GRAVE
-&trans  &kp QUESTION    &kp JP_GRAVE  &kp JP_LBKT  &kp JP_RBKT  &kp JP_YEN                                      &mmv MOVE_DOWN                     &mt JP_EQUAL KP_N0    &kp N1  &kp N2  &kp N3  &kp JP_SLASH  &kp RIGHT_SHIFT  
-                                    &mo 6         &kp SPACE     &trans                                                                               &trans           &trans &trans
+&trans  &mt JP_BSLH JP_YEN  &kp JP_GRAVE  &kp JP_LBRC  &kp JP_RBRC  &kp JP_CARET                  &mmv MOVE_UP                         &kp TAB       &kp N7  &kp N8  &kp N9  &kp N0        &kp BSPC
+&trans  &kp JP_AT           &kp JP_DQT    &kp JP_LPAR  &kp JP_RPAR  &kp JP_COLON  &mmv MOVE_LEFT  &mkp LCLK           &mmv MOVE_RIGHT  &kp JP_PLUS   &kp N4  &kp N5  &kp N6  &kp JP_MINUS  &kp GRAVE
+&trans  &kp JP_EXCL         &kp JP_SQT    &kp JP_LBKT  &kp JP_RBKT  &kp SEMI      &mmv MOVE_DOWN  &mt JP_EQUAL KP_N0                   &kp JP_ASTRK  &kp N1  &kp N2  &kp N3  &kp FSLH      &kp DELETE
+                                          &kp SPACE    &trans       &trans                                                             &trans        &trans  &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_BRIGHTNESS_INC C_BRIGHTNESS_DEC>;
@@ -189,10 +182,10 @@
         layer_4 {
             display-name = "NumPad";
             bindings = <
-&kp GRAVE       &kp JP_TILDE  &kp JP_AT     &kp JP_LBRC  &kp JP_RBRC  &kp JP_SEMI                                       &kp PG_UP            &kp TAB       &kp N7     &kp N8  &kp N9  &kp JP_ASTRK  &kp BACKSPACE
-&trans          &kp JP_EXCL   &kp JP_SQT    &kp JP_LPAR  &kp JP_RPAR  &kp JP_COLON                            &kp HOME  &bl BL_TOG  &kp END  &kp JP_PLUS   &kp N4     &kp N5  &kp N6  &kp JP_MINUS  &kp JP_EQUAL
-&kp LEFT_SHIFT  &kp JP_CARET  &kp JP_GRAVE  &kp JP_LBKT  &kp JP_RBKT  &kp JP_BSLH    &kp C_BRIGHTNESS_AUTO              &kp PG_DN            &kp N0        &kp N1     &kp N2  &kp N3  &kp JP_SLASH  &kp JP_CARET
-                                          &trans        &trans       &trans          &kp LEFT_SHIFT                                          &td_caps          &kp ENTER  &trans
+&kp GRAVE       &kp JP_TILDE  &kp JP_AT     &kp JP_LBRC  &kp JP_RBRC  &kp JP_SEMI                          &kp PG_UP            &kp TAB         &kp N7    &kp N8     &kp N9  &kp JP_ASTRK  &kp BACKSPACE
+&trans          &kp JP_EXCL   &kp JP_SQT    &kp JP_LPAR  &kp JP_RPAR  &kp JP_COLON  &kp HOME               &bl BL_TOG  &kp END  &kp JP_PLUS     &kp N4    &kp N5     &kp N6  &kp JP_MINUS  &kp JP_EQUAL
+&kp LEFT_SHIFT  &kp JP_CARET  &kp JP_GRAVE  &kp JP_LBKT  &kp JP_RBKT  &kp JP_BSLH   &kp C_BRIGHTNESS_AUTO  &kp PG_DN            &kp N0          &kp N1    &kp N2     &kp N3  &kp JP_SLASH  &kp JP_CARET
+                                            &trans       &trans       &trans                                                    &kp LEFT_SHIFT  &td_caps  &kp ENTER
             >;
 
             sensor-bindings = <&inc_dec_kp C_BRIGHTNESS_INC C_BRIGHTNESS_DEC>;
@@ -201,10 +194,10 @@
         layer_6 {
             display-name = "shftSYM";
             bindings = <
-&trans  &kp JP_EXCL   &kp JP_AT     &kp JP_HASH  &kp JP_DLLR  &kp JP_PRCNT                                    &mmv MOVE_UP                         &kp JP_CARET        &kp JP_AMPS  &kp JP_ASTRK  &kp JP_LPAR   &kp JP_CARET   &kp BSPC
-&trans  &kp JP_EXCL   &kp JP_SQT    &kp JP_RBRC  &kp JP_RPAR  &kp JP_RBKT                     &mmv MOVE_LEFT  &mkp LCLK           &mmv MOVE_RIGHT  &kp JP_PLUS         &kp JP_DLLR  &kp JP_PRCNT  &kp JP_CARET  &kp JP_UNDER   &kp GRAVE
-&trans  &kp JP_CARET  &kp JP_GRAVE  &kp JP_BSLH  &kp JP_SEMI  &kp JP_TILDE  &mmv MOVE_DOWN                    &mt ENTER JP_EQUAL                   &mt ENTER JP_EQUAL  &kp JP_EXCL  &kp JP_AT     &kp JP_HASH   &kp JP_PRCNT   &trans
-                                    &trans       &trans        &trans                                                                               &trans        &trans  &trans
+&trans  &kp JP_EXCL   &kp JP_AT     &kp JP_HASH  &kp JP_DLLR  &kp JP_PRCNT                  &mmv MOVE_UP                         &kp JP_CARET        &kp JP_AMPS  &kp JP_ASTRK  &kp JP_LPAR   &kp JP_CARET  &kp BSPC
+&trans  &kp JP_EXCL   &kp JP_SQT    &kp JP_RBRC  &kp JP_RPAR  &kp JP_RBKT   &mmv MOVE_LEFT  &mkp LCLK           &mmv MOVE_RIGHT  &kp JP_PLUS         &kp JP_DLLR  &kp JP_PRCNT  &kp JP_CARET  &kp JP_UNDER  &kp GRAVE
+&trans  &kp JP_CARET  &kp JP_GRAVE  &kp JP_BSLH  &kp JP_SEMI  &kp JP_TILDE  &mmv MOVE_DOWN  &mt ENTER JP_EQUAL                   &mt ENTER JP_EQUAL  &kp JP_EXCL  &kp JP_AT     &kp JP_HASH   &kp JP_PRCNT  &trans
+                                    &trans       &trans       &trans                                                             &trans              &trans       &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_BRIGHTNESS_INC C_BRIGHTNESS_DEC>;
