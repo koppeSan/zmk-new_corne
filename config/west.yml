@@ -2,17 +2,56 @@ manifest:
   remotes:
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
+    - name: cormoran
+      url-base: https://github.com/cormoran
       # Additional modules containing boards/shields/custom code can be listed here as well.
       # See:
       # - https://zmk.dev/docs/features/modules
       # - https://docs.zephyrproject.org/3.5.0/develop/west/manifest.html#projects
   projects:
+    # Eyelash Corne shield definition (nice_nano_v2 + eyelash_corne_left/right)
     - name: eyelash_corne
       url: https://github.com/a741725193/zmk-new_corne
       revision: main
+    # ZMK fork with DYA Studio (custom Studio RPC) support
     - name: zmk
-      remote: zmkfirmware
-      revision: main
+      remote: cormoran
+      revision: v0.3-branch+dya
       import: app/west.yml
+    # Required by the eyelash_corne shield config (CONFIG_ZMK_RUNTIME_SENSOR_ROTATE)
+    - name: zmk-behavior-runtime-sensor-rotate
+      remote: cormoran
+      revision: main
+    # DYA Studio feature modules
+    # NOTE: zmk-v0.3.0.0 tags are pinned where available; the main branch of
+    #       those modules has migrated to ZMK v0.4 / Zephyr 4.x.
+    - name: zmk-feature-custom-settings
+      remote: cormoran
+      revision: main
+    - name: zmk-feature-runtime-combo
+      remote: cormoran
+      revision: main
+    - name: zmk-feature-runtime-macro
+      remote: cormoran
+      revision: main
+    - name: zmk-module-runtime-input-processor
+      remote: cormoran
+      revision: zmk-v0.3.0.0
+    - name: zmk-module-ble-management
+      remote: cormoran
+      revision: zmk-v0.3.0.0
+    - name: zmk-module-battery-history
+      remote: cormoran
+      revision: main
+    # Also provides CONFIG_ZMK_SPLIT_RELAY_EVENT (split relay event) support
+    - name: zmk-module-settings-rpc
+      remote: cormoran
+      revision: main
+    - name: zmk-feature-os-detection
+      remote: cormoran
+      revision: main
+    - name: zmk-feature-device-info
+      remote: cormoran
+      revision: main
   self:
     path: config
