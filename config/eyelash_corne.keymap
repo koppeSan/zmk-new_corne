@@ -44,11 +44,37 @@
 
 / {
     behaviors {
-        td0: td0 {
+        // Existing Shift/Caps Lock tap dance (renamed from td0, used on the NumPad layer)
+        td_caps: td_caps {
             compatible = "zmk,behavior-tap-dance";
             display-name = "Shift/Caps Lock Tap Dance";
             #binding-cells = <0>;
             bindings = <&kp LEFT_SHIFT>, <&kp CAPS>;
+        };
+
+        // Tap dances for assigning from DYA Studio
+        td0: td0 {
+            compatible = "zmk,behavior-tap-dance";
+            display-name = "TD ESC/ENTER";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp ESC>, <&kp ENTER>;
+        };
+
+        td1: td1 {
+            compatible = "zmk,behavior-tap-dance";
+            display-name = "TD C/V";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp C>, <&kp V>;
+        };
+
+        td2: td2 {
+            compatible = "zmk,behavior-tap-dance";
+            display-name = "TD J/K";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp J>, <&kp K>;
         };
     };
 
@@ -109,7 +135,7 @@
                              &kp LGUI  &mt LEFT_SHIFT JP_ZKHK  &mt LCTRL SPACE                                                        &lt 2 ENTER  &lt 3 BACKSPACE  &lt 1 INTERNATIONAL_5
             >;
 
-            sensor-bindings = <&scroll_encoder>;
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
 
         MouseLayer {
@@ -166,7 +192,7 @@
 &kp GRAVE       &kp JP_TILDE  &kp JP_AT     &kp JP_LBRC  &kp JP_RBRC  &kp JP_SEMI                                       &kp PG_UP            &kp TAB       &kp N7     &kp N8  &kp N9  &kp JP_ASTRK  &kp BACKSPACE
 &trans          &kp JP_EXCL   &kp JP_SQT    &kp JP_LPAR  &kp JP_RPAR  &kp JP_COLON                            &kp HOME  &bl BL_TOG  &kp END  &kp JP_PLUS   &kp N4     &kp N5  &kp N6  &kp JP_MINUS  &kp JP_EQUAL
 &kp LEFT_SHIFT  &kp JP_CARET  &kp JP_GRAVE  &kp JP_LBKT  &kp JP_RBKT  &kp JP_BSLH    &kp C_BRIGHTNESS_AUTO              &kp PG_DN            &kp N0        &kp N1     &kp N2  &kp N3  &kp JP_SLASH  &kp JP_CARET
-                                          &trans        &trans       &trans          &kp LEFT_SHIFT                                          &td0          &kp ENTER  &trans
+                                          &trans        &trans       &trans          &kp LEFT_SHIFT                                          &td_caps          &kp ENTER  &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_BRIGHTNESS_INC C_BRIGHTNESS_DEC>;
