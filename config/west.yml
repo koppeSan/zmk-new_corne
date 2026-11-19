@@ -13,18 +13,41 @@ manifest:
     - name: eyelash_corne
       url: https://github.com/a741725193/zmk-new_corne
       revision: main
-    # ZMK fork with DYA Studio (custom Studio RPC) support
+    # ZMK fork with DYA Studio (custom Studio RPC) support (Zephyr 4.1)
     - name: zmk
       remote: cormoran
-      revision: v0.3-branch+dya
+      revision: main+dya
       import: app/west.yml
+      clone-depth: 1
+    - name: zephyr
+      remote: cormoran
+      revision: v4.1.0+zmk-fixes+nrf-half-duplex-uart
+      clone-depth: 1
+      import:
+        name-blocklist:
+          - ci-tools
+          - hal_altera
+          - hal_cypress
+          - hal_infineon
+          - hal_microchip
+          - hal_nxp
+          - hal_openisa
+          - hal_xtensa
+          - hal_st
+          - hal_ti
+          - loramac-node
+          - mcuboot
+          - mcumgr
+          - net-tools
+          - openthread
+          - edtt
+          - trusted-firmware-m
+          - chre
     # Required by the eyelash_corne shield config (CONFIG_ZMK_RUNTIME_SENSOR_ROTATE)
     - name: zmk-behavior-runtime-sensor-rotate
       remote: cormoran
       revision: main
     # DYA Studio feature modules
-    # NOTE: zmk-v0.3.0.0 tags are pinned where available; the main branch of
-    #       those modules has migrated to ZMK v0.4 / Zephyr 4.x.
     - name: zmk-feature-custom-settings
       remote: cormoran
       revision: main
@@ -36,10 +59,10 @@ manifest:
       revision: main
     - name: zmk-module-runtime-input-processor
       remote: cormoran
-      revision: zmk-v0.3.0.0
+      revision: main
     - name: zmk-module-ble-management
       remote: cormoran
-      revision: zmk-v0.3.0.0
+      revision: main
     - name: zmk-module-battery-history
       remote: cormoran
       revision: main
