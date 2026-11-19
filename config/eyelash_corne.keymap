@@ -154,7 +154,7 @@
 &trans  &kp TILDE       &kp JP_SQT    &kp JP_LBRC  &kp JP_RBRC  &kp JP_SEMI                                     &mmv MOVE_UP                       &kp NUMBER_6    &kp N7  &kp N8  &kp N9        &kp N0           &kp BSPC
 &trans  &kp JP_EXCL     &kp JP_DQT    &kp JP_LPAR  &kp JP_RPAR  &kp JP_COLON                     &mmv MOVE_LEFT  &mkp LCLK        &mmv MOVE_RIGHT  &kp JP_PLUS     &kp N4  &kp N5  &kp N6        &kp JP_MINUS     &kp GRAVE
 &trans  &kp QUESTION    &kp JP_GRAVE  &kp JP_LBKT  &kp JP_RBKT  &kp JP_YEN                                      &mmv MOVE_DOWN                     &mt JP_EQUAL KP_N0    &kp N1  &kp N2  &kp N3  &kp JP_SLASH  &kp RIGHT_SHIFT  
-                                    &mo 6         &kp SPACE     &trans                                                                               &trans 　　　　  &trans &trans
+                                    &mo 6         &kp SPACE     &trans                                                                               &trans           &trans &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_BRIGHTNESS_INC C_BRIGHTNESS_DEC>;
